@@ -4,7 +4,7 @@ use Newway\LaravelMailer\Models\Template as TemplateModel;
 use Newway\LaravelMailer\Validators\Template as TemplateValidator;
 use App;
 
-class TemplateProvider {
+class TemplateProvider implements ResourceProviderInterface {
 
     public function __construct()
     {

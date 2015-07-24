@@ -4,7 +4,7 @@ use Newway\LaravelMailer\Models\Client as ClientModel;
 use Newway\LaravelMailer\Validators\Client as ClientValidator;
 use App;
 
-class ClientProvider {
+class ClientProvider implements ResourceProviderInterface {
 
     public function __construct()
     {

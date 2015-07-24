@@ -4,11 +4,15 @@ use Newway\LaravelMailer\Models\Group as GroupModel;
 use Newway\LaravelMailer\Validators\Group as GroupValidator;
 use App;
 
-class GroupProvider {
+class GroupProvider implements ResourceProviderInterface {
 
     public function __construct()
     {
         $this->groupValidator = new GroupValidator(App::make('Laracasts\Validation\FactoryInterface'));
+    }
+
+    public function find($id) {
+        return GroupModel::findOrFail($id);
     }
 
     public function create(array $data) {

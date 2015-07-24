@@ -5,7 +5,7 @@ use Newway\LaravelMailer\Validators\Dispatch as DispatchValidator;
 use App;
 use Config;
 
-class DispatchProvider {
+class DispatchProvider implements ResourceProviderInterface {
 
     public function __construct()
     {
