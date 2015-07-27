@@ -17,7 +17,8 @@ class Mailgun implements Mailer {
 
             $template = $dispatch->template ? $dispatch->template->content : null;
             $message = new Message($template, $dispatch->content);
-            MailgunMail::send('laravel-mailer::emails.base', ['text' => $message->getMessage()], function ($message) use ($emails, $variables) {
+            MailgunMail::send('laravel-mailer::emails.base', ['text' => $message->getMessage()], function ($message) use ($emails, $variables, $dispatch) {
+                $message->subject($dispatch->subject);
                 $message->to($emails);
                 $message->recipientVariables($variables);
             });

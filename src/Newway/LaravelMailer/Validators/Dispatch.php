@@ -15,6 +15,7 @@ class Dispatch extends FormValidator
 	protected $rules = [
 		'type' => 'required',
         'name' => 'required',
+        'subject' => 'required',
         'status' => 'integer',
     ];
 
