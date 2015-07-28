@@ -24,6 +24,7 @@ class ClientProvider implements ResourceProviderInterface {
         if(!$client instanceof ClientModel) {
             $client = ClientModel::findOrFail($client);
         }
+        $this->clientValidator->setId($client->id);
         $this->clientValidator->validate($data);
         return $client->update($data);
     }

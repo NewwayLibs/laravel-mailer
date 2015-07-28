@@ -8,8 +8,8 @@ class Dispatch extends \Eloquent
 
 	protected $fillable = [
 		'name',
-		'subject',
-		'content',
+        'subject',
+        'content',
 		'description',
 		'type',
 		'status',

@@ -12,8 +12,12 @@ class Client extends FormValidator
 	 * @var array
 	 */
 	protected $rules = [
-		'email' => 'required|email',
+		'email' => 'required|email|unique:mailer_clients,email',
         'name' => 'required',
     ];
+
+    public function setId($id) {
+        $this->rules['email'] .= ",id,$id";
+    }
 
 }

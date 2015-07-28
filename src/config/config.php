@@ -10,7 +10,7 @@ return array(
      */
 
     'provider' => [
-        'sms' => '',
+        'sms' => 'send_sms',
         'email' => 'send_mail',
     ],
     /*
@@ -20,7 +20,16 @@ return array(
      */
 
     'providers' => [
-        'mailgun' => include(__DIR__ . '/providers/mailgun.php'),
+        'mailgun' => include(__DIR__ . '/laravel-mailer-providers/mailgun.php'),
+    ],
+
+    /*
+     |--------------------------------------------------------------------------
+     | Autoloaded Service Providers
+     |--------------------------------------------------------------------------
+     */
+    'service_providers' => [
+        'Bogardo\Mailgun\MailgunServiceProvider'
     ]
 
 );
