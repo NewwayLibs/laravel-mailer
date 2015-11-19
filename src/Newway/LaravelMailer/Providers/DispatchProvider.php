@@ -41,7 +41,7 @@ class DispatchProvider implements ResourceProviderInterface {
     public function send($dispatch) {
         $dispatch = $this->getDispatch($dispatch);
 
-        $provider = Config::get('laravel-mailer::provider.' . $dispatch->type);
+        $provider = Config::get('laravel-mailer.provider.' . $dispatch->type);
         $class = 'Newway\\LaravelMailer\\Mailers\\' . ucfirst($dispatch->type) . '\\' . str_replace(' ', '', ucwords(strtolower($provider)));
 
         $mailProvider = new $class;
