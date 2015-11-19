@@ -9,6 +9,7 @@ class Client extends \Eloquent
 	protected $fillable = [
 		'name',
 		'email',
+		'phone'
 	];
 
 	public function groups()
