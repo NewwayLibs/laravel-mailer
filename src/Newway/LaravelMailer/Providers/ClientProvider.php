@@ -6,17 +6,11 @@ use App;
 
 class ClientProvider implements ResourceProviderInterface {
 
-    public function __construct()
-    {
-        $this->clientValidator = new ClientValidator(App::make('Laracasts\Validation\FactoryInterface'));
-    }
-
     public function find($id) {
         return ClientModel::findOrFail($id);
     }
 
     public function create(array $data) {
-        $this->clientValidator->validate($data);
         return ClientModel::create($data);
     }
 
@@ -24,8 +18,6 @@ class ClientProvider implements ResourceProviderInterface {
         if(!$client instanceof ClientModel) {
             $client = ClientModel::findOrFail($client);
         }
-        $this->clientValidator->setId($client->id);
-        $this->clientValidator->validate($data);
         return $client->update($data);
     }
 

@@ -6,11 +6,6 @@ use App;
 
 class TemplateProvider implements ResourceProviderInterface {
 
-    public function __construct()
-    {
-        $this->templateValidator = new TemplateValidator(App::make('Laracasts\Validation\FactoryInterface'));
-    }
-
     public function find($id) {
         return TemplateModel::findOrFail($id);
     }
@@ -20,7 +15,6 @@ class TemplateProvider implements ResourceProviderInterface {
     }
 
     public function create(array $data) {
-        $this->templateValidator->validate($data);
         return TemplateModel::create($data);
     }
 
@@ -28,7 +22,6 @@ class TemplateProvider implements ResourceProviderInterface {
         if(!$template instanceof TemplateModel) {
             $template = TemplateModel::findOrFail($template);
         }
-        $this->templateValidator->validate($data);
         return $template->update($data);
     }
 

@@ -6,17 +6,11 @@ use App;
 
 class GroupProvider implements ResourceProviderInterface {
 
-    public function __construct()
-    {
-        $this->groupValidator = new GroupValidator(App::make('Laracasts\Validation\FactoryInterface'));
-    }
-
     public function find($id) {
         return GroupModel::findOrFail($id);
     }
 
     public function create(array $data) {
-        $this->groupValidator->validate($data);
         return GroupModel::create($data);
     }
 
@@ -24,7 +18,6 @@ class GroupProvider implements ResourceProviderInterface {
         if(!$group instanceof GroupModel) {
             $group = GroupModel::findOrFail($group);
         }
-        $this->groupValidator->validate($data);
         return $group->update($data);
     }
 

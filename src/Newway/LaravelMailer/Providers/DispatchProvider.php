@@ -7,11 +7,6 @@ use Config;
 
 class DispatchProvider implements ResourceProviderInterface {
 
-    public function __construct()
-    {
-        $this->dispatchValidator = new DispatchValidator(App::make('Laracasts\Validation\FactoryInterface'));
-    }
-
     public function find($id) {
         return DispatchModel::findOrFail($id);
     }
@@ -21,13 +16,11 @@ class DispatchProvider implements ResourceProviderInterface {
     }
 
     public function create(array $data) {
-        $this->dispatchValidator->validate($data);
         return DispatchModel::create($data);
     }
 
     public function update($dispatch, array $data) {
         $dispatch = $this->getDispatch($dispatch);
-        $this->dispatchValidator->validate($data);
         return $dispatch->update($data);
     }
 
