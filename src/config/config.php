@@ -21,6 +21,7 @@ return array(
 
     'providers' => [
         'mailgun' => include(__DIR__ . '/laravel-mailer-providers/mailgun.php'),
+        'turbo_sms' => include(__DIR__ . '/laravel-mailer-providers/turbo_sms.php'),
     ],
 
     /*
@@ -29,7 +30,8 @@ return array(
      |--------------------------------------------------------------------------
      */
     'service_providers' => [
-        'Bogardo\Mailgun\MailgunServiceProvider'
+        'Bogardo\Mailgun\MailgunServiceProvider',
+        'Newway\TurboSms\ServiceProvider'
     ]
 
 );

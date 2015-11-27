@@ -1,24 +1,31 @@
 {
-    "name": "newway/laravel-mailer",
-    "description": "",
-    "authors": [
-        {
-            "name": "Zimm",
-            "email": "Romsssa@gmail.com"
-        }
+  "name": "newway/laravel-mailer",
+  "description": "",
+  "authors": [
+    {
+      "name": "Zimm",
+      "email": "Romsssa@gmail.com"
+    }
+  ]
+  "repositories": [
+    {
+      "type": "vcs",
+      "url" : "git@github.com:NewwayLibs/TurboSms.git"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "^5.1",
+    "bogardo/mailgun": "4.0.*",
+    "newway/turbo-sms": "1.1.*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/migrations"
     ],
-    "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "^5.1",
-        "bogardo/mailgun": "4.0.*"
-    },
-    "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
-        "psr-4"   : {
-          "Newway\\LaravelMailer\\": "src/Newway/LaravelMailer"
-        }
-    },
-    "minimum-stability": "stable"
+    "psr-4": {
+      "Newway\\LaravelMailer\\": "src/Newway/LaravelMailer"
+    }
+  },
+  "minimum-stability": "stable"
 }
